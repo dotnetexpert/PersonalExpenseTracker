@@ -1,0 +1,23 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/CleanArchitectureComplete/DesignTimeBuild
+/.vs/CleanArchitectureComplete/FileContentIndex
+/.vs/CleanArchitectureComplete/v17
+/.vs/HotelBookings/DesignTimeBuild
+/.vs/Personal Expense Tracker/DesignTimeBuild
+/.vs/Personal Expense Tracker/FileContentIndex
+/.vs/PersonalExpenseTracker/FileContentIndex
+/.vs/PersonalExpenseTracker/v17/.wsuo
+/.vs/PersonalExpenseTracker/v17/DocumentLayout.json
+/.vs/Personal_Expense_Tracker/DesignTimeBuild
+/.vs/Personal_Expense_Tracker/FileContentIndex
+/.vs/ProjectEvaluation
+/.vs/Personal_Expense_Tracker/v17
+/src/Application/bin/Debug/net5.0
+/src/Application/obj
+/src/Domain/bin/Debug/net5.0
+/src/Domain/obj
+/src/Infrastructure/bin/Debug/net5.0
+/src/Infrastructure/obj

@@ -1,0 +1,6 @@
+<select [(ngModel)]="selectedCategory" (ngModelChange)="onSelectionChange($event)">
+    <option value="all">All Transaction</option>
+    <option value="totalExpense">Total Expense</option>
+    <option value="totalIncome">Total Income</option>
+  </select>
+<div id="container"></div>

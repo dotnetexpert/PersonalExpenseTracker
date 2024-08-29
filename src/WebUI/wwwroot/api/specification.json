@@ -1,0 +1,1162 @@
+{
+  "x-generator": "NSwag v13.9.4.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CleanArchitecture API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/email": {
+      "get": {
+        "tags": [
+          "Email"
+        ],
+        "operationId": "Email_SendMail",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "subject",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ExpenseCategory/getAll": {
+      "get": {
+        "tags": [
+          "ExpenseCategory"
+        ],
+        "operationId": "ExpenseCategory_GetAll",
+        "parameters": [
+          {
+            "name": "ApplicationUserId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "transId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExpenseCategoryArray"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ExpenseCategory/upsertCategory": {
+      "post": {
+        "tags": [
+          "ExpenseCategory"
+        ],
+        "operationId": "ExpenseCategory_Upsert",
+        "requestBody": {
+          "x-name": "category",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExpenseCategory"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ExpenseCategory/deleteCategory": {
+      "delete": {
+        "tags": [
+          "ExpenseCategory"
+        ],
+        "operationId": "ExpenseCategory_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PayeeList/getAllPayee": {
+      "get": {
+        "tags": [
+          "PayeeList"
+        ],
+        "operationId": "PayeeList_GetAll",
+        "parameters": [
+          {
+            "name": "ApplicationUserId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "transId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PayeeListArray"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PayeeList/upsertPayee": {
+      "post": {
+        "tags": [
+          "PayeeList"
+        ],
+        "operationId": "PayeeList_Upsert",
+        "requestBody": {
+          "x-name": "payee",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PayeeList"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PayeeList/deletePayee": {
+      "delete": {
+        "tags": [
+          "PayeeList"
+        ],
+        "operationId": "PayeeList_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PaymentMethod/getAllMethods": {
+      "get": {
+        "tags": [
+          "PaymentMethod"
+        ],
+        "operationId": "PaymentMethod_GetAll",
+        "parameters": [
+          {
+            "name": "ApplicationUserId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentMethodArray"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PaymentMethod/upsertMethod": {
+      "post": {
+        "tags": [
+          "PaymentMethod"
+        ],
+        "operationId": "PaymentMethod_Upsert",
+        "requestBody": {
+          "x-name": "paymentMethod",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentMethod"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PaymentMethod/deleteMethod": {
+      "delete": {
+        "tags": [
+          "PaymentMethod"
+        ],
+        "operationId": "PaymentMethod_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/getAllTransactions": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_GetAll",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllTransactionsByTransactionIdVM"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/upsertTransaction": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_Upsert",
+        "requestBody": {
+          "x-name": "transaction",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Transaction"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/deleteTransaction": {
+      "delete": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/getTodayTransactions": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_GetTodayTransactions",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSummaryVM"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/getLast7DaysTransactions": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_GetLast7DaysTransactions",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSummaryVM"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/getThisMonthTransactions": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_GetThisMonthTransactions",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSummaryVM"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Transaction/getThisYearTransactions": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "operationId": "Transaction_GetThisYearTransactions",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionSummaryVM"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/authenticate": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Login",
+        "requestBody": {
+          "x-name": "loginViewModel",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginViewModel"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Register",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "Name": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "Email": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "PhoneNumber": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "Password": {
+                    "type": "string",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationUser"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ExpenseCategoryArray": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "expenseCategories": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ExpenseCategory"
+            }
+          }
+        }
+      },
+      "ExpenseCategory": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DomainObjects"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transactionTypeId": {
+                "$ref": "#/components/schemas/TransactionType"
+              }
+            }
+          }
+        ]
+      },
+      "TransactionType": {
+        "type": "integer",
+        "description": "",
+        "x-enumNames": [
+          "Debit",
+          "Credit"
+        ],
+        "enum": [
+          0,
+          1
+        ]
+      },
+      "DomainObjects": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "isDefault": {
+            "type": "boolean"
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Unit": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "PayeeListArray": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "payeeLists": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PayeeList"
+            }
+          }
+        }
+      },
+      "PayeeList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DomainObjects"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transactionTypeId": {
+                "$ref": "#/components/schemas/TransactionType"
+              }
+            }
+          }
+        ]
+      },
+      "PaymentMethodArray": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "paymentMethods": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PaymentMethod"
+            }
+          }
+        }
+      },
+      "PaymentMethod": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DomainObjects"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "GetAllTransactionsByTransactionIdVM": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "today": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TransactionSummaryVM"
+              }
+            ]
+          },
+          "last7Days": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TransactionSummaryVM"
+              }
+            ]
+          },
+          "thisMonth": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TransactionSummaryVM"
+              }
+            ]
+          },
+          "thisYear": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TransactionSummaryVM"
+              }
+            ]
+          }
+        }
+      },
+      "TransactionSummaryVM": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "totalIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalExpense": {
+            "type": "number",
+            "format": "double"
+          },
+          "outstandingBalance": {
+            "type": "number",
+            "format": "double"
+          },
+          "transactions": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/TransactionDetailVM"
+            }
+          }
+        }
+      },
+      "TransactionDetailVM": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expenseAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionType": {
+            "type": "string",
+            "nullable": true
+          },
+          "expenseCategory": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ExpenseCategoryVM"
+              }
+            ]
+          },
+          "payee": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PayeeVM"
+              }
+            ]
+          },
+          "paymentMethod": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PaymentMethodVM"
+              }
+            ]
+          }
+        }
+      },
+      "ExpenseCategoryVM": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PayeeVM": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "payeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PaymentMethodVM": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Transaction": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transactionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transactionTypeId": {
+            "$ref": "#/components/schemas/TransactionType"
+          },
+          "expenseAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationUser"
+              }
+            ]
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "expenseCategory": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ExpenseCategory"
+              }
+            ]
+          },
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paymentMethod": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PaymentMethod"
+              }
+            ]
+          },
+          "payeeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "payeeList": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PayeeList"
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "transactionDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApplicationUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IdentityUser"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "type": "string",
+                "nullable": true
+              },
+              "token": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IdentityUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IdentityUserOfString"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "IdentityUserOfString": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "normalizedEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailConfirmed": {
+            "type": "boolean"
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "concurrencyStamp": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumberConfirmed": {
+            "type": "boolean"
+          },
+          "twoFactorEnabled": {
+            "type": "boolean"
+          },
+          "lockoutEnd": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lockoutEnabled": {
+            "type": "boolean"
+          },
+          "accessFailedCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "LoginViewModel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "Type into the textbox: Bearer {your JWT token}.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JWT": []
+    }
+  ]
+}

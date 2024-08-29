@@ -1,0 +1,8 @@
+<select [(ngModel)]="selectedCategory" (ngModelChange)="onSelectionChange($event)">
+    <option value="today">Today</option>
+    <option value="last7Days">Last7Days</option>
+    <option value="thisMonth">Month</option>
+    <option value="thisYear">Year</option>
+  </select>
+<div id="container1"></div>
+

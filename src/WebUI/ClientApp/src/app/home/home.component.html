@@ -1,0 +1,138 @@
+
+<div class="row m-3">
+  <div class="col-10">
+      <h2 class="text-primary text-center">Today List</h2>
+  </div>
+</div>
+<div class="m-3 p-3 text-center">
+  <table class="table table-active table-stripped taple-bordered col-10 offset-1">
+      <thead>
+          <tr>
+              <th>Total Income</th>
+              <th>Expense Amount</th>
+              <th>Outstanding Balance</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr >
+              <td>{{today.totalIncome}}</td>
+              <td>{{today.totalExpense}}</td>
+              <td>{{today.outstandingBalance}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div class="row m-3">
+  <div class="col-10">
+      <h2 class="text-primary text-center">Weekly List</h2>
+  </div>
+</div>
+<div class="m-3 p-3 text-center">
+  <table class="table table-active table-stripped taple-bordered col-10 offset-1">
+      <thead>
+          <tr>
+              <th>Total Income</th>
+              <th>Expense Amount</th>
+              <th>Outstanding Balance</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr >
+              <td>{{week.totalIncome}}</td>
+              <td>{{week.totalExpense}}</td>
+              <td>{{week.outstandingBalance}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+<div class="row m-3">
+  <div class="col-10">
+      <h2 class="text-primary text-center">Month List</h2>
+  </div>
+</div>
+<div class="m-3 p-3 text-center">
+  <table class="table table-active table-stripped taple-bordered col-10 offset-1">
+      <thead>
+          <tr>
+              <th>Total Income</th>
+              <th>Expense Amount</th>
+              <th>Outstanding Balance</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr >
+              <td>{{month.totalIncome}}</td>
+              <td>{{month.totalExpense}}</td>
+              <td>{{month.outstandingBalance}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div class="row m-3">
+  <div class="col-10">
+      <h2 class="text-primary text-center">Year List</h2>
+  </div>
+</div>
+<div class="m-3 p-3 text-center">
+  <table class="table table-active table-stripped taple-bordered col-10 offset-1">
+      <thead>
+          <tr>
+              <th>Total Income</th>
+              <th>Expense Amount</th>
+              <th>Outstanding Balance</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr >
+              <td>{{year.totalIncome}}</td>
+              <td>{{year.totalExpense}}</td>
+              <td>{{year.outstandingBalance}}</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+<div>
+    <label for="periodSelect">Select Period:</label>
+    <select id="periodSelect" [(ngModel)]="selectedPeriod" (change)="updateChartData()">
+      <option value="today">Today</option>
+      <option value="last7Days">Last 7 Days</option>
+      <option value="thisMonth">This Month</option>
+      <option value="thisYear">This Year</option>
+    </select>
+</div>
+  
+  <div style="width: 100%; height: 400px;">
+    <div class="row">
+      <div class="col-6">
+        <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"></highcharts-chart>
+
+      </div>
+      <div class="col-6">
+        <div class="m-3 p-3 text-center">
+          <table class="table table-active table-stripped taple-bordered col-10 offset-1">
+              <thead>
+                <th>ExpenseCategoryName</th>
+                <th>TransactionDate</th>
+                <th>PaymentMethod</th>
+                <th>ExpenseAmount</th>
+              </thead>
+              <tbody *ngFor="let item of year.transactions; let i=index;">
+                  <tr *ngIf="i < 5">
+                      <td>{{item.expenseCategory.name}}</td>
+                      <td>{{item.transactionDate | date}}</td>
+                      <td>{{item.paymentMethod.name}}</td>
+                      <td [ngStyle]="{'color': item.transactionType === 'Credit' ? 'green' : 'red'}">
+                        {{ item.expenseAmount }}
+                      </td>
+                  </tr>
+              </tbody>
+              <!-- <button (click)="showFive = !showFive">{{showFive?"More":"Less"}}</button> -->
+          </table>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  
+

@@ -1,0 +1,85 @@
+<!-- <div class="row mt-5">
+    <div class="card text-center mx-auto">
+        <div class="card-header">
+            <div class="text-center">
+                <b class="text-info">Login</b>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-group row m-2 p-2">
+                <label for="txtusername" class="col-sm-4">User Name</label>
+                <div class="col-sm-8">
+                    <input [(ngModel)]="login.username" id="txtusername" name="username" placeholder="Enter Email" type="text"
+                        class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row m-2 p-2">
+                <label for="txtpassword" class="col-sm-4">Password</label>
+                <div class="col-sm-8">
+                    <input [(ngModel)]="login.password" id="textpassword" name="password" placeholder="Enter Password" type="password"
+                        class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <button (click)="loginClick()" class="btn btn-success">Login</button>
+        </div>
+    </div>
+</div> -->
+
+<form [formGroup]="loginForm"  (ngSubmit)="login()" class="form w-100">
+    <div class="row mt-5">
+    <div class="card text-center mx-auto">
+        <div class="card-header">
+            <div class="text-center">
+                <b class="text-info">Login</b>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-group row m-2 p-2">
+                <label for="txtusername" class="col-sm-4">User Name</label>
+                <div class="col-sm-8">
+                    <input type="email" formControlName="email" [ngClass]="{'is-invalid':submitted && f['email'].errors}"  id="txtusername" name="username" placeholder="Enter Email" 
+                        class="form-control" />
+                         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback"> 
+                    <div *ngIf="f['email'].errors['required']">
+                        Email is required
+                    </div>
+                    <div *ngIf="f['email'].errors['email']">
+                        Email must be a valid email address
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group row m-2 p-2">
+                <label for="txtpassword" class="col-sm-4">Password</label>
+                <div class="col-sm-8">
+                    <input type="password" formControlName="password" [ngClass]="{'is-invalid':submitted && f['password'].errors}" id="textpassword" name="password" placeholder="Enter Password" type="password"
+                        class="form-control" />
+                         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback"> 
+                    <div *ngIf="f['password'].errors['required']">
+                        Password is required
+                    </div>
+                    <div *ngIf="f['password'].errors['minlength']">
+                        Password must be at least 6 characters
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <!-- <button (click)="loginClick()" class="btn btn-success">Login</button> -->
+            <input id="submit-btn" type="submit"  name="submit" value="Login" class="login100-form-btn btn-primary" />
+            <div class="form-row">
+                <div class="form-group">
+                    <p>Don't have an account? <a routerLink="/register">Create Account</a> </p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+</form>
+
+
